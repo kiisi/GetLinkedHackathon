@@ -11,3 +11,58 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+@layer base {
+  html {
+    font-family: Montserrat, system-ui, sans-serif;
+  }
+}
+
+@font-face {
+  font-family: ClashDisplay;
+  src: url("/fonts/ClashDisplay-Extralight.otf") format("opentype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: ClashDisplay;
+  src: url("/fonts/ClashDisplay-Regular.otf") format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: ClashDisplay;
+  src: url("/fonts/ClashDisplay-Medium.otf") format("opentype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: ClashDisplay;
+  src: url("/fonts/ClashDisplay-Semibold.otf") format("opentype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: ClashDisplay;
+  src: url("/fonts/ClashDisplay-Bold.otf") format("opentype");
+  font-weight: 700;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+input[data-autocompleted] {
+    background-color: transparent !important;
+}
+
+.radial{
+  background-image: radial-gradient(#430980, #47098411, transparent, transparent);
+}

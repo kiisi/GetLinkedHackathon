@@ -7,8 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#d434fe"
-      }
+        primary: "#d434fe",
+        bgdark: "#150e26"
+      },
+      backgroundImage: {
+        'primary-gradient': 'linear-gradient(270deg, #903AFF 0%, #D434FE 56.42%, #FF26B9 99.99%, #FE34B9 100%)',
+      },
+      fontFamily: {
+        'clashdisplay': ['ClashDisplay', 'sans'],
+      },
     },
   },
   plugins: [],

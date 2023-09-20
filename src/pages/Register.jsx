@@ -6,23 +6,30 @@ import Button from "../components/Button";
 import { Listbox, Transition } from '@headlessui/react'
 import { nanoid } from "nanoid";
 import { Dialog } from '@headlessui/react'
+import SEO from "../components/Seo";
 
 export default function Register() {
 
     return (
-        <div className="bg-bgdark min-h-[100vh] overflow-hidden">
-            <div className="hidden lg:block">
-                <Navbar buttonType="gradient" />
-            </div>
-            <Container>
-                <div className="py-10 lg:py-20 grid lg:grid-cols-2 gap-10 justify-between">
-                    <figure className="hidden lg:block">
-                        <img src="/images/graphic-designer.svg" alt="" className="" />
-                    </figure>
-                    <RegisterForm />
+        <>
+            <SEO
+                title="Register"
+                description="Registration Page for GetLinked Pre Hackathon Project"
+            />
+            <div className="bg-bgdark min-h-[100vh] overflow-hidden">
+                <div className="hidden lg:block">
+                    <Navbar buttonType="gradient" />
                 </div>
-            </Container>
-        </div>
+                <Container>
+                    <div className="py-10 lg:py-20 grid lg:grid-cols-2 gap-10 justify-between">
+                        <figure className="hidden lg:block">
+                            <img src="/images/graphic-designer.svg" alt="" className="" />
+                        </figure>
+                        <RegisterForm />
+                    </div>
+                </Container>
+            </div>
+        </>
     )
 }
 
@@ -76,7 +83,7 @@ const RegisterForm = () => {
     const [selectedPerson, setSelectedPerson] = useState(null)
     const [selectedGroup, setSelectedGroup] = useState(null)
 
-    const submit = (e) =>{
+    const submit = (e) => {
         e.preventDefault()
 
         openModal()
@@ -222,7 +229,7 @@ const RegisterForm = () => {
                             <div className="flex gap-3 items-center">
                                 <div className="w-[14px] h-[14px] shrink-0 mt-[5px] self-start rounded-[2px] border-[1px] border-white">
                                 </div>
-                                <p className="text-white relative z-10">I agreed with the event terms and conditions  and privacy policy</p>
+                                <p className="text-white relative z-2">I agreed with the event terms and conditions  and privacy policy</p>
                             </div>
                         </div>
                         <Button

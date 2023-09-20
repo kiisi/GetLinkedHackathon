@@ -3,7 +3,7 @@
 import Button from "../components/Button";
 import Container from "../components/Container";
 
-export default function Navbar({ className }) {
+export default function Navbar({ className, buttonType }) {
 
     return (
         <Container>
@@ -18,7 +18,16 @@ export default function Navbar({ className }) {
                         <span className="text-white">Faqs</span>
                         <span className="text-transparent bg-clip-text bg-primary-gradient">Contact</span>
                     </div>
-                    <Button>Register</Button>
+                    {
+                        buttonType === "gradient" ?
+                            <button className="h-[53px] w-[172px] p-[2px] bg-primary-gradient rounded-[4px]">
+                                <div className="bg-bgdark w-full h-full grid place-items-center text-white">
+                                    Register
+                                </div>
+                            </button>
+                            :
+                            <Button>Register</Button>
+                    }
                 </div>
             </nav>
         </Container>

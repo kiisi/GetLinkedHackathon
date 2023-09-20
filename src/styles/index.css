@@ -63,6 +63,34 @@ input[data-autocompleted] {
     background-color: transparent !important;
 }
 
-.radial{
-  background-image: radial-gradient(#430980, #47098411, transparent, transparent);
+.custom-scroll-bar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scroll-bar::-webkit-scrollbar-button:start:decrement,
+.custom-scroll-bar::-webkit-scrollbar-button:end:increment {
+  display: block;
+  height: 10px;
+}
+
+.custom-scroll-bar::-webkit-scrollbar-button:vertical:increment {
+  background-color: #fff;
+}
+
+.custom-scroll-bar::-webkit-scrollbar-track-piece {
+  background-color: #eee;
+  -webkit-border-radius: 3px;
+}
+
+.custom-scroll-bar::-webkit-scrollbar-thumb:vertical {
+  height: 50px;
+  background-color: #d434fe;
+  -webkit-border-radius: 3px;
+}
+
+.custom-scroll-bar::-webkit-scrollbar-thumb:horizontal {
+  width: 50px;
+  background-color: #d434fe;
+  -webkit-border-radius: 3px;
 }

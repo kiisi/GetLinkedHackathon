@@ -12,7 +12,7 @@ export default function Contact() {
             <div className="hidden lg:block">
                 <Navbar />
             </div>
-            <Container className="pt-10">
+            <Container className="pt-10 lg:hidden">
                 <div className="max-w-[437px] w-full mx-auto">
                     <button className="bg-primary-gradient h-[23px] w-[23px] rounded-[50%] block p-[2px] overflow-hidden">
                         <span className="w-full h-full bg-bgdark grid place-items-center rounded-[50%]">
@@ -22,7 +22,7 @@ export default function Contact() {
                 </div>
             </Container>
             <Container>
-                <div className="py-10 lg:py-20 lg:px-12 flex gap-20 justify-between">
+                <div className="py-10 lg:py-20 lg:px-12 flex gap-10 justify-between">
                     <div className="pt-10 hidden lg:block">
                         <h1 className="font-[ClashDisplay] text-primary text-[32px] font-semibold mb-5">Get in touch</h1>
                         <div className="flex flex-col gap-5 text-white">
@@ -123,8 +123,8 @@ const ContactForm = () => {
                     </div>
                 </form>
             </div>
-            <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="absolute pointer-events-none top-[-40%] left-[-145%]" />
-            <img src="/images/purple-lens-flare-right.svg" alt="purple lens flare" className="absolute pointer-events-none bottom-[-40%] right-[-45%]" />
+            <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="absolute pointer-events-none top-[-25%] left-[-135%] mix-blend-hard-light" />
+            <img src="/images/purple-lens-flare-right.svg" alt="purple lens flare" className="absolute pointer-events-none lg:bottom-[-50%] lg:right-[-60%] mix-blend-hard-light" />
         </div>
     )
 }

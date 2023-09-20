@@ -15,6 +15,8 @@ export default {
       },
       fontFamily: {
         'clashdisplay': ['ClashDisplay', 'sans'],
+        'unicaone': ['Unica One', 'sans'],
+        'primary': ['Montserrat', 'sans'],
       },
     },
   },

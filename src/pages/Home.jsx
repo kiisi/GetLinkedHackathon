@@ -17,6 +17,8 @@ export default function Home() {
                     <Navbar className="pb-5" />
                 </div>
                 <Hero />
+                <BigIdea />
+                <Rules />
             </div>
         </>
     )
@@ -29,13 +31,13 @@ const Hero = () => {
             <Container className="!px-4 flex justify-center lg:justify-end relative">
                 <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="hidden lg:block absolute pointer-events-none lg:top-[-300px] lg:left-[-100px] mix-blend-hard-light" />
                 <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="hidden lg:block absolute pointer-events-none top-[-100px] left-[600px] mix-blend-hard-light" />
-                <h1 className="font-bold italic py-6 lg:text-[36px] text-white relative z-2">Igniting a Revolution in <span className="relative">HR Innovation <img src="/images/curved-line.svg" className="bottom-[-10px] lg:bottom-[-15px] left-[2px] absolute" /></span></h1>
+                <h1 className="font-bold italic py-6 lg:text-[36px] text-white relative z-2 text-center lg:text-right">Igniting a Revolution in <span className="relative">HR Innovation <img src="/images/curved-line.svg" className="bottom-[-10px] lg:bottom-[-15px] left-[2px] absolute" /></span></h1>
             </Container>
             <div className="border-b-[1px] border-[#ffffff2e]">
                 <Container className="grid lg:grid-cols-2 pt-8 lg:pt-24">
                     <header className="grid place-items-center lg:place-items-start lg:flex flex-col gap-5 pb-8">
                         <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="w-[616px] h-[563px] lg:hidden absolute pointer-events-none top-[-8%] left-[-8%] mix-blend-hard-light" />
-                        <div className="grid place-items-center lg:block font-clashdisplay text-white text-[32px] lg:text-[80px] font-bold lg:leading-[98px] relative z-2">
+                        <div className="grid place-items-center text-center lg:text-left lg:block font-clashdisplay text-white text-[32px] lg:text-[80px] font-bold lg:leading-[98px] relative z-2">
                             <h1>getlinked Tech</h1>
                             <h1>Hackathon&nbsp;
                                 <span className="text-primary inline-block relative">1.0
@@ -49,22 +51,22 @@ const Hero = () => {
                         <Link to='/register' className="relative z-2">
                             <Button>Register</Button>
                         </Link>
-                        <div className="pt-5 text-white flex gap-6 relative z-2">
+                        <div className="pt-5 text-white flex gap-4 lg:gap-6 relative z-2">
                             <div className="flex">
-                                <h1 className="font-unicaone text-[64px]">00</h1>
-                                <span className="text-[14px] font-primary pb-4 inline-block self-end mb-2">H</span>
+                                <h1 className="font-unicaone text-[48px] lg:text-[64px]">00</h1>
+                                <span className="text-[14px] font-primary pb-2 lg:pb-4 inline-block self-end mb-2">H</span>
                             </div>
                             <div className="flex">
-                                <h1 className="font-unicaone text-[64px]">00</h1>
-                                <span className="text-[14px] font-primary pb-4 inline-block self-end mb-2">M</span>
+                                <h1 className="font-unicaone text-[48px] lg:text-[64px]">00</h1>
+                                <span className="text-[14px] font-primary pb-2 lg:pb-4 inline-block self-end mb-2">M</span>
                             </div>
                             <div className="flex">
-                                <h1 className="font-unicaone text-[64px]">00</h1>
-                                <span className="text-[14px] font-primary pb-4 inline-block self-end mb-2">S</span>
+                                <h1 className="font-unicaone text-[48px] lg:text-[64px]">00</h1>
+                                <span className="text-[14px] font-primary pb-2 lg:pb-4 inline-block self-end mb-2">S</span>
                             </div>
                         </div>
                     </header>
-                    <figure className="relative">
+                    <figure className="relative overflow-y-hidden">
                         <img
                             src="/images/planet.svg"
                             alt="Planet"
@@ -79,5 +81,67 @@ const Hero = () => {
                 </Container>
             </div>
         </>
+    )
+}
+
+const BigIdea = () => {
+
+    return (
+        <Container className="pt-[62px] pb-[78px]">
+            <div className="grid lg:grid-cols-2 gap-[109px] max-w-max mx-auto">
+                <figure>
+                    <img src="/images/bigidea.svg" alt="Big Idea" />
+                </figure>
+                <div className="flex items-center">
+                    <div className="w-full max-w-[535px] grid place-items-center lg:block text-center lg:text-left">
+                        <header className="text-white text-[32px] font-clasdisplay font-bold">
+                            <h1>Introduction to getlinked</h1>
+                            <h1 className="text-primary">tech Hackathon 1.0</h1>
+                        </header>
+                        <div className="pt-2">
+                            <p className="text-white text-[14px] leading-[27px]">Our tech hackathon is a melting pot of visionaries, and its purpose is as
+                                clear as day: to shape the future. Whether you&rsquo;re a coding genius, a
+                                design maverick, or a concept wizard, you&rsquo;ll have the chance to transform
+                                your ideas into reality. Solving real-world problems, pushing the boundaries
+                                of technology, and creating solutions that can change the world,
+                                that&rsquo;s what we&rsquo;re all about!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    )
+}
+
+const Rules = () => {
+
+    return (
+        <div className="border-b-[1px] border-[#ffffff2e]">
+            <Container>
+                <div className="grid lg:grid-cols-2 gap-[48px] max-w-max mx-auto">
+                    <figure className="col-start-1 lg:col-start-2">
+                        <img src="/images/rules.svg" alt="Rules and Guidelines" />
+                        <img src="/images/purple-lens-flare-rules.svg" alt="purple lens flare" className="w- absolute w-[1037px] h-[948px] pointer-events-none top-[-420px] left-[20px] mix-blend-hard-light hidden lg:block" />
+                    </figure>
+                    <div className="flex items-center lg:row-start-1 pb-[78px]">
+                        <div className="w-full max-w-[535px] grid place-items-center lg:block text-center lg:text-left">
+                            <header className="text-white text-[32px] font-clasdisplay font-bold relative ">
+                                <img src="/images/purple-lens-flare-rules.svg" alt="purple lens flare" className="w- absolute w-[1037px] h-[948px] pointer-events-none top-[-420px] left-[20px] mix-blend-hard-light hidden lg:block" />
+                                <h1 className="relative z-2">Rules and</h1>
+                                <h1 className="text-primary relative z-2">Guidelines</h1>
+                            </header>
+                            <div className="pt-2 relative z-2">
+                                <p className="text-white text-[14px] leading-[27px]">Our tech hackathon is a melting pot of visionaries, and its purpose is as
+                                    clear as day: to shape the future. Whether you&rsquo;re a coding genius, a
+                                    design maverick, or a concept wizard, you&rsquo;ll have the chance to transform
+                                    your ideas into reality. Solving real-world problems, pushing the boundaries
+                                    of technology, and creating solutions that can change the world,
+                                    that&rsquo;s what we&rsquo;re all about!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        </div>
     )
 }

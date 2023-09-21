@@ -8,7 +8,7 @@ export default function Navbar({ className, buttonType }) {
 
     return (
         <Container>
-            <nav className={`${className ?? ""} w-full py-10 flex items-center justify-between`}>
+            <nav className={`${className ?? ""} w-full pt-6 py-10 lg:py-10 flex items-center justify-between`}>
                 <figure>
                     <Link to="/">
                         <img src="/getlinked.svg" alt="GetLinked logo" className="w-[72px] h-[18px] lg:w-[171px] lg:h-[44px]" />

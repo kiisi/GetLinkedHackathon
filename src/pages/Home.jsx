@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { attributesData } from "../data/atrributes";
 import { Disclosure, Transition } from '@headlessui/react'
 import { faqsData } from "../data/faqs";
+import { TimelineLeft, TimelineMobile, TimelineRight } from "../components/Timeline";
+import { timelineData } from "../data/timeline";
 
 export default function Home() {
 
@@ -252,52 +254,44 @@ const Timeline = () => {
                     <p className="text-[14px]">Here is the breakdown of the time we anticipate
                         using for the upcoming event.</p>
                 </header>
-                <section>
-                    <TimelineLeft 
-                        title="Hackathon Announcement"
-                        content="The getlinked tech hackathon 1.0 is formally announced to the general public and teams begin to get ready to register"
-                        date="November 18, 2023"
-                        index="1"
-                        start={true}
-                    />
-                    <TimelineRight 
-                        index="2"
-                        date="November 18, 2023"
-                        title="Teams Registration begins"
-                        content="Interested teams can now show their interest in the
-                        getlinked tech hackathon 1.0 2023 by proceeding to register"
-                    />
-                    <TimelineLeft 
-                        title="Teams Registration ends"
-                        content="Interested Participants are no longer Allowed to
-                        register"
-                        date="November 18, 2023"
-                        index="3"
-                    />
-                    <TimelineRight
-                        title="Announcement of the accepted teams
-                        and ideas"
-                        content="All teams whom idea has been accepted into getlinked tech
-                        hackathon 1.0 2023 are formally announced"
-                        date="November 18, 2023"
-                        index="4"
-                    />
-                    <TimelineLeft
-                        title="Getlinked Hackathon 1.0 Offically Begins"
-                        content="Accepted teams can now proceed to build their
-                        ground breaking skill driven solutions"
-                        date="November 18, 2023"
-                        index="5"
-                    />
-                    <TimelineRight
-                        title="Demo Day"
-                        content="Teams get the opportunity to pitch their projects to judges.
-                        The winner of the hackathon will also be announced on
-                        this day"
-                        date="November 18, 2023"
-                        index="6"
-                        end={true}
-                    />
+                <section className="hidden sm:block">
+                    {
+                        timelineData.map(tld => (
+                            tld.direction === 'left' ?
+                                <TimelineLeft
+                                    key={tld.id}
+                                    title={tld.title}
+                                    content={tld.content}
+                                    date={tld.date}
+                                    index={tld.index}
+                                    start={tld?.start}
+                                    end={tld?.end}
+                                />
+                                :
+                                <TimelineRight
+                                    key={tld.id}
+                                    title={tld.title}
+                                    content={tld.content}
+                                    date={tld.date}
+                                    index={tld.index}
+                                    start={tld?.start}
+                                    end={tld?.end}
+                                />
+                        ))
+                    }
+                </section>
+                <section className="block sm:hidden">
+                    {
+                        timelineData.map(tld => (
+                            <TimelineMobile
+                                key={tld.id}
+                                title={tld.title}
+                                content={tld.content}
+                                date={tld.date}
+                                index={tld.index}
+                            />
+                        ))
+                    }
                 </section>
             </Container>
         </div>
@@ -305,44 +299,3 @@ const Timeline = () => {
 }
 
 
-const TimelineLeft = ({ title, content, index, date, start }) => {
-
-    return (
-        <div className="grid grid-cols-[1fr_70px_1fr]">
-            <div className={`pr-[80px] pb-5 ${start ? "pt-24" : "pt-10"}`}>
-                <h1 className="text-right text-primary text-[24px] font-bold mb-2">{title}</h1>
-                <p className="text-[14px] text-white text-right">{content}</p>
-            </div>
-            <div className="flex justify-center relative">
-                <div className="h-[58px] w-[58px] rounded-[50%] grid place-items-center text-white timeline-gradient-circle text-[24px] font-bold self-end mb-5 relative z-[1] border-[6px] border-[#150E28]">
-                    {index}
-                </div>
-                <div className="absolute w-[4px] h-full bg-primary"></div>
-            </div>
-            <div className="pl-[80px] flex">
-                <h1 className="text-left self-end text-primary text-[24px] font-bold mb-[30px]">{date}</h1>
-            </div>
-        </div>
-    )
-}
-
-const TimelineRight = ({ title, content, index, date, end }) => {
-
-    return (
-        <div className="grid grid-cols-[1fr_70px_1fr]">
-            <div className="pr-[80px] flex">
-                <h1 className="flex-1 text-right mb-[30px] self-end text-primary text-[24px] font-bold mb-2">{date}</h1>
-            </div>
-            <div className="flex justify-center relative">
-                <div className="h-[65px] w-[65px] rounded-[50%] grid place-items-center text-white timeline-gradient-circle text-[24px] font-bold self-end mb-5 relative z-[1] border-[10px] border-[#150E28]">
-                    {index}
-                </div>
-                <div className={`absolute w-[4px] h-full bg-primary ${end ? "bottom-5" : ""}`}></div>
-            </div>
-            <div className="pl-[80px] pb-5 pt-10 text-left">
-                <h1 className="text-primary text-[24px] font-bold mb-2">{title}</h1>
-                <p className="text-[14px] text-white">{content}</p>
-            </div>
-        </div>
-    )
-}

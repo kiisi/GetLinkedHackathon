@@ -29,6 +29,7 @@ export default function Home() {
                 <Faqs />
                 <Timeline />
                 <Rewards />
+                <Partners />
             </div>
         </>
     )
@@ -351,6 +352,44 @@ const Rewards = () => {
                                 </div>
                             </div>
                         </section>
+                    </div>
+                </div>
+            </Container>
+        </div>
+    )
+}
+
+const Partners = () => {
+
+    return (
+        <div className="bg-[#110b20] py-[74px]">
+            <Container className="py-20">
+                <header className="text-white relative text-center mb-14">
+                    <h1 className="relative z-2 text-[32px] font-clasdisplay font-bold">Partners and Sponsors </h1>
+                    <p className="pt-2 text-[14px] mx-auto w-full max-w-[452px] ">Getlinked Hackathon 1.0 is honored to have the following major
+                        companies as its partners and sponsors
+                    </p>
+                </header>
+                <div className="w-full max-w-[1255px] mx-auto py-32 rounded-[2px] border-[1px] border-primary">
+                    <div className="w-full max-w-[898px] mx-auto grid grid-cols-3">
+                        <div className="p-5 grid place-items-center border-b-[3px] border-primary relative before:content-[''] before:w-[50px] before:h-[50px] before:absolute before:bottom-[-25px] before:right-[-25px] before:bg-[#110b20]">
+                            <img src='/images/liberty.svg' alt="Liberty" />
+                        </div>
+                        <div className="p-5 grid place-items-center border-b-[3px] border-primary border-l-[3px] border-primary border-r-[3px]">
+                            <img src='/images/libertypay.svg' alt="Liberty" />
+                        </div>
+                        <div className="p-5 grid place-items-center border-b-[3px] border-primary relative before:content-[''] before:w-[50px] before:h-[50px] before:absolute before:bottom-[-25px] before:left-[-25px] before:bg-[#110b20]">
+                            <img src='/images/winwise.svg' alt="Winwise" />
+                        </div>
+                        <div className="p-5 grid place-items-center">
+                            <img src='/images/wisper.svg' alt="Wisper" />
+                        </div>
+                        <div className="p-5 grid place-items-center border-l-[3px] border-r-[3px] border-primary">
+                            <img src='/images/paybox.svg' alt="Paybox" />
+                        </div>
+                        <div className="p-5 grid place-items-center">
+                            <img src='/images/vizual-plus.svg' alt="Vizual Plus" />
+                        </div>
                     </div>
                 </div>
             </Container>

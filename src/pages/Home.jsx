@@ -28,6 +28,7 @@ export default function Home() {
                 <Attributes />
                 <Faqs />
                 <Timeline />
+                <Rewards />
             </div>
         </>
     )
@@ -298,4 +299,65 @@ const Timeline = () => {
     )
 }
 
+const Rewards = () => {
 
+    return (
+        <div className="bg-[#110b20] py-[74px]">
+            <Container>
+                <header className="text-white relative grid lg:hidden text-center">
+                    <h1 className="relative z-2 text-[32px] font-clasdisplay font-bold">Prizes and </h1>
+                    <h1 className="text-primary relative z-2 text-[32px] font-clasdisplay font-bold">Rewards</h1>
+                    <p className="pt-2">Highlight of the prizes or rewards for winners and
+                        for participants.
+                    </p>
+                </header>
+                <div className="flex flex-col lg:flex-row gap-[37px]">
+                    <figure className="pt-20 lg:pt-36 grid place-items-center">
+                        <img src="/images/trophy.svg" alt="Trophy" />
+                    </figure>
+                    <div>
+                        <header className="text-white relative hidden lg:block pl-14 pb-14 text-left">
+                            <h1 className="relative z-2 text-[32px] font-clasdisplay font-bold">Prizes and </h1>
+                            <h1 className="text-primary relative z-2 text-[32px] font-clasdisplay font-bold">Rewards</h1>
+                            <p className="pt-2">Highlight of the prizes or rewards for winners and
+                                for participants.
+                            </p>
+                        </header>
+                        <section className="pt-32 lg:pt-56 flex gap-2 lg:gap-5 pt-52 max-w-max mx-auto">
+                            <div className="grid place-items-center relative lg:-mr-8">
+                                <img src="/images/silver-medal.svg" alt="Silver medal" className="max-w-[76px] lg:max-w-[179px] absolute top-[-35px] lg:top-[-60px]" />
+                                <div className="flex justify-center w-full max-w-[90px] lg:max-w-[212px] min-h-[125px] lg:min-h-[296px] border-[1px] border-[#D434FE] rounded-[8px] pt-10 lg:pt-40 pb-5 lg:pb-10 px-2">
+                                    <div className="self-end text-center relative">
+                                        <h2 className="text-[12px] lg:text-[40px] text-white font-bold">2nd</h2>
+                                        <h3 className="text-white font-semibold text-[12px] lg:text-[24px]">Runner</h3>
+                                        <h1 className="text-[14px] lg:text-[32px] text-primary font-bold pt-4">N300,000</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="grid place-items-center relative w-[125px] lg:w-[296px]">
+                                <img src="/images/gold-medal.svg" alt="Gold medal" className="w-[125px] lg:w-[296px] absolute top-[-75px] lg:top-[-150px]" />
+                                <div className="flex justify-center w-full max-w-[90px] lg:max-w-[212px] min-h-[147px] lg:min-h-[347px] border-[1px] border-[#D434FE] rounded-[8px] bg-[#903aff1f] pt-10 lg:pt-40 pb-5 lg:pb-10 px-2">
+                                    <div className="text-center self-end">
+                                        <h2 className="text-[12px] lg:text-[40px] text-white font-bold">1st</h2>
+                                        <h3 className="text-white font-semibold text-[12px] lg:text-[24px]">Runner</h3>
+                                        <h1 className="text-[14px] lg:text-[32px] text-primary font-bold pt-3">N400,000</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="grid place-items-center relative lg:-ml-8">
+                                <img src="/images/bronze-medal.svg" alt="Bronze medal" className="w-full max-w-[76px] lg:max-w-[179px] absolute top-[-35px] lg:top-[-60px]" />
+                                <div className="flex justify-center w-full max-w-[90px] lg:max-w-[212px] min-h-[125px] lg:min-h-[296px] border-[1px] border-[#D434FE] rounded-[8px] pt-10 lg:pt-40 pb-5 lg:pb-10 px-2">
+                                    <div className="self-end text-center">
+                                        <h2 className="text-[12px] lg:text-[40px] text-white font-bold">3nd</h2>
+                                        <h3 className="text-white font-semibold text-[12px] lg:text-[24px]">Runner</h3>
+                                        <h1 className="text-[14px] lg:text-[32px] text-primary font-bold pt-4">N150,000</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </Container>
+        </div>
+    )
+}

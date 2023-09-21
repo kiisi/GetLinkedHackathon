@@ -99,3 +99,7 @@ input[data-autocompleted] {
 .timeline-gradient-circle{
   background: linear-gradient(270deg, #903AFF 0%, #D434FE 100%);
 }
+
+.bronze-medal-gradient{
+  background: linear-gradient(0deg, #D434FE, #D434FE), linear-gradient(0deg, rgba(212, 52, 254, 0.12), rgba(212, 52, 254, 0.12));
+}

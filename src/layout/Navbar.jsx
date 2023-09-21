@@ -11,7 +11,7 @@ export default function Navbar({ className, buttonType }) {
             <nav className={`${className ?? ""} w-full py-10 flex items-center justify-between`}>
                 <figure>
                     <Link to="/">
-                        <img src="/getlinked.svg" alt="GetLinked logo" />
+                        <img src="/getlinked.svg" alt="GetLinked logo" className="w-[72px] h-[18px] lg:w-[171px] lg:h-[44px]" />
                     </Link>
                 </figure>
                 <div className="hidden lg:flex items-center gap-20">

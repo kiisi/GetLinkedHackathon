@@ -4,6 +4,8 @@ import Container from "../components/Container";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import { attributesData } from "../data/atrributes";
+import { Disclosure, Transition  } from '@headlessui/react'
+import { faqsData } from "../data/faqs";
 
 export default function Home() {
 
@@ -21,6 +23,7 @@ export default function Home() {
                 <BigIdea />
                 <Rules />
                 <Attributes />
+                <Faqs />
             </div>
         </>
     )
@@ -126,7 +129,7 @@ const Rules = () => {
                         <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="w- absolute w-[1037px] h-[948px] pointer-events-none top-[20px] right-[-350px] mix-blend-hard-light hidden lg:block" />
                     </figure>
                     <div className="flex items-center lg:row-start-1 pb-[78px]">
-                        <div className="w-full max-w-[535px] grid place-items-center lg:block text-center lg:text-left">
+                        <div className="w-full max-w-[535px] mx-auto grid place-items-center lg:block text-center lg:text-left">
                             <header className="text-white text-[32px] font-clasdisplay font-bold relative ">
                                 <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="w- absolute w-[1037px] h-[948px] pointer-events-none top-[-420px] left-[20px] mix-blend-hard-light hidden lg:block" />
                                 <h1 className="relative z-2">Rules and</h1>
@@ -160,7 +163,7 @@ const Attributes = () => {
                     </figure>
                     <div className="flex items-center pb-[78px] relative">
                         <img src="/images/purple-lens-flare-right.svg" alt="purple lens flare" className="absolute w-[1037px] h-[948px] pointer-events-none top-[400px] right-[-200px] mix-blend-hard-light hidden lg:block" />
-                        <div className="w-full max-w-[564px] grid place-items-center lg:block text-center lg:text-left">
+                        <div className="w-full max-w-[564px] mx-auto grid place-items-center lg:block text-center lg:text-left">
                             <header className="text-white text-[32px] font-clasdisplay font-bold relative ">
                                 <h1 className="relative z-2">Judging Criteria</h1>
                                 <h1 className="text-primary relative z-2">Key attributes</h1>
@@ -177,6 +180,60 @@ const Attributes = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </Container>
+        </div>
+    )
+}
+
+const Faqs = () => {
+
+    return (
+        <div className="border-b-[1px] border-[#ffffff2e]">
+            <Container>
+                <div className="flex gap-[24px] pb-14 flex-col lg:flex-row">
+                    <div className="w-full lg:max-w-[427px] pt-24">
+                        <header className="text-white relative pb-14 grid place-items-center lg:block text-center lg:text-left">
+                            <h1 className="relative z-2 text-[32px] font-clasdisplay font-bold">Frequently Ask </h1>
+                            <h1 className="text-primary relative z-2 text-[32px] font-clasdisplay font-bold">Question</h1>
+                            <p className="pt-2 text-[14px]">We got answers to the questions that you might
+                                want to ask about getlinked Hackathon 1.0</p>
+                        </header>
+                        <div>
+                            {
+                                faqsData.map(faq => (
+                                    <Disclosure key={faq.id}>
+                                        {({ open }) => (
+                                            <div className="mb-5">
+                                                <Disclosure.Button className="flex w-full justify-between border-b-[1px] border-primary py-2 text-left">
+                                                    <span className="text-white text-[14px]">{faq.title}</span>
+                                                    <span className={`material-icons self-end ${open ? "rotate-180" : "-rotate-180"} transition text-primary`}>
+                                                        {open ? "remove" : "add"}
+                                                    </span>
+                                                </Disclosure.Button>
+                                                <Transition
+                                                    enter="transition duration-100 ease-out"
+                                                    enterFrom="transform scale-95 opacity-0"
+                                                    enterTo="transform scale-100 opacity-100"
+                                                    leave="transition duration-75 ease-out"
+                                                    leaveFrom="transform scale-100 opacity-100"
+                                                    leaveTo="transform scale-95 opacity-0"
+                                                >
+                                                    <Disclosure.Panel className="text-left px-2 py-2 text-[13px] text-white text-opacity-80">
+                                                        {faq.content}
+                                                    </Disclosure.Panel>
+                                                </Transition>
+
+                                            </div>
+                                        )}
+                                    </Disclosure>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    <figure className="flex-1">
+                        <img src="/images/faqs.svg" alt="Faqs" />
+                    </figure>
                 </div>
             </Container>
         </div>

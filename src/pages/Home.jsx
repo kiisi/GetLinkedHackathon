@@ -3,6 +3,7 @@ import SEO from "../components/Seo";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import { attributesData } from "../data/atrributes";
 
 export default function Home() {
 
@@ -19,6 +20,7 @@ export default function Home() {
                 <Hero />
                 <BigIdea />
                 <Rules />
+                <Attributes />
             </div>
         </>
     )
@@ -119,14 +121,14 @@ const Rules = () => {
         <div className="border-b-[1px] border-[#ffffff2e]">
             <Container>
                 <div className="grid lg:grid-cols-2 gap-[48px] max-w-max mx-auto">
-                    <figure className="col-start-1 lg:col-start-2">
-                        <img src="/images/rules.svg" alt="Rules and Guidelines" />
-                        <img src="/images/purple-lens-flare-rules.svg" alt="purple lens flare" className="w- absolute w-[1037px] h-[948px] pointer-events-none top-[-420px] left-[20px] mix-blend-hard-light hidden lg:block" />
+                    <figure className="col-start-1 lg:col-start-2 relative">
+                        <img src="/images/rules.svg" alt="Rules and Guidelines" className="relative z-2" />
+                        <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="w- absolute w-[1037px] h-[948px] pointer-events-none top-[20px] right-[-350px] mix-blend-hard-light hidden lg:block" />
                     </figure>
                     <div className="flex items-center lg:row-start-1 pb-[78px]">
                         <div className="w-full max-w-[535px] grid place-items-center lg:block text-center lg:text-left">
                             <header className="text-white text-[32px] font-clasdisplay font-bold relative ">
-                                <img src="/images/purple-lens-flare-rules.svg" alt="purple lens flare" className="w- absolute w-[1037px] h-[948px] pointer-events-none top-[-420px] left-[20px] mix-blend-hard-light hidden lg:block" />
+                                <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="w- absolute w-[1037px] h-[948px] pointer-events-none top-[-420px] left-[20px] mix-blend-hard-light hidden lg:block" />
                                 <h1 className="relative z-2">Rules and</h1>
                                 <h1 className="text-primary relative z-2">Guidelines</h1>
                             </header>
@@ -137,6 +139,41 @@ const Rules = () => {
                                     your ideas into reality. Solving real-world problems, pushing the boundaries
                                     of technology, and creating solutions that can change the world,
                                     that&rsquo;s what we&rsquo;re all about!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        </div>
+    )
+}
+
+const Attributes = () => {
+
+    return (
+        <div className="border-b-[1px] border-[#ffffff2e]">
+            <Container>
+                <div className="grid lg:grid-cols-2 gap-[53px] max-w-max mx-auto pt-[100px]">
+                    <figure className="relative flex items-center">
+                        <img src="/images/attributes.svg" alt="Judging Criteria Key attributes" className="relative z-2" />
+                        <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="absolute w-[1037px] h-[948px] pointer-events-none top-[-150px] lg:top-[150px] left-[-100px] mix-blend-hard-light  lg:block" />
+                    </figure>
+                    <div className="flex items-center pb-[78px] relative">
+                        <img src="/images/purple-lens-flare-right.svg" alt="purple lens flare" className="absolute w-[1037px] h-[948px] pointer-events-none top-[400px] right-[-200px] mix-blend-hard-light hidden lg:block" />
+                        <div className="w-full max-w-[564px] grid place-items-center lg:block text-center lg:text-left">
+                            <header className="text-white text-[32px] font-clasdisplay font-bold relative ">
+                                <h1 className="relative z-2">Judging Criteria</h1>
+                                <h1 className="text-primary relative z-2">Key attributes</h1>
+                            </header>
+                            <div className="pt-8 relative z-2 flex flex-col gap-8">
+                                {
+                                    attributesData.map(ad => (
+                                        <p key={ad.id} className="text-white">
+                                            <span className="text-[#FF26B9] font-bold">{ad.title}</span> {ad.content}
+                                        </p>
+                                    ))
+                                }
+                                <Button className="mt-6 mx-auto lg:mx-0">Read More</Button>
                             </div>
                         </div>
                     </div>

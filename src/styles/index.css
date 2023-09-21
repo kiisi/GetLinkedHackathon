@@ -95,3 +95,7 @@ input[data-autocompleted] {
   background-color: #d434fe;
   -webkit-border-radius: 3px;
 }
+
+.timeline-gradient-circle{
+  background: linear-gradient(270deg, #903AFF 0%, #D434FE 100%);
+}

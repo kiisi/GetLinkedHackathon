@@ -1,4 +1,5 @@
-import { Fragment, useState } from "react";
+/* eslint-disable react/prop-types */
+import { Fragment, useEffect, useState } from "react";
 import Container from "../components/Container";
 import Navbar from "../layout/Navbar";
 import Input from "../components/Input";
@@ -7,6 +8,11 @@ import { Listbox, Transition } from '@headlessui/react'
 import { nanoid } from "nanoid";
 import { Dialog } from '@headlessui/react'
 import SEO from "../components/Seo";
+import appService from "../services/app";
+import authService from "../services/auth";
+import toast from "react-hot-toast";
+import validator from 'validator';
+import HttpErrorException from "../utlis/HttpErrrorException";
 
 export default function Register() {
 
@@ -35,37 +41,11 @@ export default function Register() {
 
 const RegisterForm = () => {
 
+    let [loading, setLoading] = useState(false)
     let [isOpen, setIsOpen] = useState(false)
-
-    function closeModal() {
-        console.log(isOpen)
-        setIsOpen(false)
-    }
-
-    function openModal() {
-        setIsOpen(true)
-    }
-    const [formData, setFormData] = useState({
-        first_name: "",
-        mail: "",
-        message: "",
-    })
-
-    const formDataHandler = (e) => {
-        setFormData(prev => ({
-            ...prev,
-            [e.target.name]: e.target.value
-        }))
-    }
-
-    const people = [
-        { id: nanoid(), name: 'Durward Reynolds', unavailable: false },
-        { id: nanoid(), name: 'Kenton Towne', unavailable: false },
-        { id: nanoid(), name: 'Therese Wunsch', unavailable: false },
-        { id: nanoid(), name: 'Benedict Kessler', unavailable: false },
-        { id: nanoid(), name: 'Katelyn Rohan', unavailable: false },
-    ]
-
+    let [checked, setChecked] = useState(false)
+    const [category, setCategory] = useState(null)
+    const [selectedCategory, setSelectedCategory] = useState(null)
     const groups = [
         { id: nanoid(), name: '1' },
         { id: nanoid(), name: '2' },
@@ -78,16 +58,95 @@ const RegisterForm = () => {
         { id: nanoid(), name: '9' },
         { id: nanoid(), name: '10' },
         { id: nanoid(), name: '11' },
+        { id: nanoid(), name: '12' },
+        { id: nanoid(), name: '13' },
+        { id: nanoid(), name: '14' },
+        { id: nanoid(), name: '15' },
+        { id: nanoid(), name: '16' },
+        { id: nanoid(), name: '17' },
+        { id: nanoid(), name: '18' },
+        { id: nanoid(), name: '19' },
+        { id: nanoid(), name: '20' },
     ]
+    const [selectedGroups, setSelectedGroups] = useState(null)
 
-    const [selectedPerson, setSelectedPerson] = useState(null)
-    const [selectedGroup, setSelectedGroup] = useState(null)
+    console.log(category)
+
+    function closeModal() {
+        console.log(isOpen)
+        setIsOpen(false)
+    }
+
+    function openModal() {
+        setIsOpen(true)
+    }
+    const [formData, setFormData] = useState({
+        email: "",
+        phone_number: "",
+        team_name: "",
+        project_topic: "",
+
+    })
+
+    const formDataHandler = (e) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }))
+    }
+
+    useEffect(() => {
+
+        appService.getCategory()
+            .then((data) => {
+                console.log(data)
+                setCategory(data.data)
+            })
+            .catch(err => console.log(err))
+
+    }, [])
 
     const submit = (e) => {
         e.preventDefault()
 
-        openModal()
+        if (!formData.email || !formData.phone_number || !formData.team_name || !formData.project_topic || !selectedGroups?.name || !selectedCategory?.id) {
+            return toast.error("All form inputs are required!")
+        }
+
+        if(!checked){
+            return toast.error("Accept our terms and conditions")
+        }
+
+        if (!validator.isEmail(formData.email)) {
+            return toast.error("Invalid email!")
+        }
+
+        const payload = {
+            email: formData.email,
+            phone_number: formData.phone_number,
+            team_name: formData.team_name,
+            group_size: selectedGroups?.name,
+            project_topic: formData.project_topic,
+            category: selectedCategory?.id,
+            privacy_poclicy_accepted: checked
+        }
+
+        console.log(payload)
+        setLoading(true)
+        authService.register(payload)
+            .then((data) => {
+                console.log(data)
+                openModal()
+            })
+            .catch(error => {
+                console.log(error)
+                new HttpErrorException(error).trigger()
+            })
+            .finally(() => setLoading(false))
+
     }
+
+    console.log(checked)
 
     return (
         <>
@@ -117,6 +176,9 @@ const RegisterForm = () => {
                             <fieldset>
                                 <label className="inline-block mb-2 text-white text-[13px]">Team&rsquo;s Name</label>
                                 <Input
+                                    name="team_name"
+                                    value={formData.team_name}
+                                    onChange={formDataHandler}
                                     placeholder="Enter the name of the group"
                                     className="placeholder-[#FFFFFF40] text-[14px]"
                                 />
@@ -124,6 +186,9 @@ const RegisterForm = () => {
                             <fieldset>
                                 <label className="inline-block mb-2 text-white text-[13px]">Phone</label>
                                 <Input
+                                    name="phone_number"
+                                    value={formData.phone_number}
+                                    onChange={formDataHandler}
                                     placeholder="Enter your phone number"
                                     className="placeholder-[#FFFFFF40] text-[14px]"
                                 />
@@ -131,6 +196,9 @@ const RegisterForm = () => {
                             <fieldset>
                                 <label className="inline-block mb-2 text-white text-[13px]">Email</label>
                                 <Input
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={formDataHandler}
                                     placeholder="Enter your email address"
                                     className="placeholder-[#FFFFFF40] text-[14px]"
                                 />
@@ -138,6 +206,9 @@ const RegisterForm = () => {
                             <fieldset>
                                 <label className="inline-block mb-2 text-white text-[13px]">Project Topic</label>
                                 <Input
+                                    name="project_topic"
+                                    value={formData.project_topic}
+                                    onChange={formDataHandler}
                                     placeholder="What is your group project topic"
                                     className="placeholder-[#FFFFFF40] text-[14px]"
                                 />
@@ -148,12 +219,12 @@ const RegisterForm = () => {
                                 <div>
                                     <label className="inline-block mb-2 text-[13px] text-white">Category</label>
                                 </div>
-                                <Listbox value={selectedPerson} as="div" onChange={setSelectedPerson} className="relative">
+                                <Listbox value={category} as="div" onChange={setSelectedCategory} className="relative z-10">
                                     {({ open }) => (
                                         <>
                                             <div className="flex justify-between gap-2 pr-2 h-[47px] w-full bg-transparent border-[1px] border-white rounded-md">
                                                 <Listbox.Button className="pl-3 lg:pl-6 text-[14px] text-left h-full text-white flex-1">
-                                                    {({ value }) => value?.name ? value.name : <p className="line-clamp-3">Select your category</p>}
+                                                    {selectedCategory?.name ? selectedCategory.name : <p className="line-clamp-3">Select your category</p>}
                                                 </Listbox.Button>
                                                 <div className="w-[24px] h-full grid place-items-center">
                                                     <span className="material-icons text-white"> {open ? "expand_less" : "expand_more"} </span>
@@ -167,8 +238,8 @@ const RegisterForm = () => {
                                                 leaveFrom="transform scale-100 opacity-100"
                                                 leaveTo="transform scale-95 opacity-0"
                                             >
-                                                <Listbox.Options className="z-10 absolute bg-white w-full rounded-md mt-2 overflow-x-hidden max-h-[150px] custom-scroll-bar">
-                                                    {people.map((person) => (
+                                                <Listbox.Options className="absolute z-10 bg-white w-full rounded-md mt-2 overflow-x-hidden max-h-[150px] custom-scroll-bar">
+                                                    {category?.map((person) => (
                                                         <Listbox.Option
                                                             key={person.id}
                                                             value={person}
@@ -188,12 +259,12 @@ const RegisterForm = () => {
                                 <div>
                                     <label className="inline-block mb-2 text-white text-[13px]">Group Size</label>
                                 </div>
-                                <Listbox value={selectedGroup} as="div" onChange={setSelectedGroup} className="relative">
+                                <Listbox value={groups} as="div" onChange={setSelectedGroups} className="relative z-10">
                                     {({ open }) => (
                                         <>
                                             <div className="flex justify-between gap-2 pr-2 h-[47px] w-full bg-transparent border-[1px] border-white rounded-md">
                                                 <Listbox.Button className="pl-3 lg:pl-6 text-[14px] h-full text-left text-white flex-1">
-                                                    {({ value }) => value?.name ? value.name : "Select"}
+                                                    {selectedGroups?.name ? selectedGroups.name : "Select"}
                                                 </Listbox.Button>
                                                 <div className="w-[24px] h-full grid place-items-center">
                                                     <span className="material-icons text-white"> {open ? "expand_less" : "expand_more"} </span>
@@ -227,15 +298,14 @@ const RegisterForm = () => {
                         <div className="mb-8">
                             <p className="text-[#FF26B9] mb-4">Please review your registration details before submitting</p>
                             <div className="flex gap-3 items-center">
-                                <div className="w-[14px] h-[14px] shrink-0 mt-[5px] self-start rounded-[2px] border-[1px] border-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="text-white"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
-                                </div>
+                                <Checkbox checked={checked} setChecked={setChecked} />
                                 <p className="text-white relative z-2">I agreed with the event terms and conditions  and privacy policy</p>
                             </div>
                         </div>
                         <Button
                             className="lg:!w-full mx-auto lg:mx-0"
-                            onClick={openModal}
+                            loading={loading}
+                            onClick={submit}
                         >
                             Register Now
                         </Button>
@@ -302,5 +372,22 @@ const RegisterForm = () => {
                 </Dialog>
             </Transition>
         </>
+    )
+}
+
+const Checkbox = ({ checked, setChecked }) => {
+
+    const checkedHandler = () => {
+        setChecked(prev => !prev)
+    }
+
+    return (
+        <div className="w-[14px] h-[14px] shrink-0 mt-[5px] self-start rounded-[2px] border-[1px] border-white" onClick={checkedHandler}>
+            {
+                checked && (
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="text-white"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
+                )
+            }
+        </div>
     )
 }

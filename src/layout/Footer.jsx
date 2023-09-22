@@ -21,13 +21,13 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className="flex flex-wrap justify-between gap-x-2 gap-y-10 w-full max-w-[500px]">
-                        <div className="flex flex-col gap-[22px]">
+                        <div className="flex flex-col gap-[15px]">
                             <h1 className="text-[14px] font-semibold text-primary">Useful Links</h1>
                             <p className="text-white text-[12px]">Overview</p>
                             <p className="text-white text-[12px]">Timeline</p>
                             <p className="text-white text-[12px]">FAQs</p>
                             <p className="text-white text-[12px]">Register</p>
-                            <p className="text-primary text-[12px] flex gap-2 item items-center">Follow us <div className="flex gap-4 items-center">
+                            <div className="text-primary text-[12px] flex gap-2 item items-center">Follow us <div className="flex gap-4 items-center">
                                 {
                                     socialLinks.map(data => (
                                         <a key={data.id} href={data.link}>
@@ -35,7 +35,7 @@ export default function Footer() {
                                         </a>
                                     ))
                                 }
-                            </div></p>
+                            </div></div>
                         </div>
                         <div className="flex flex-col gap-[22px]">
                             <h1 className="text-[14px] font-semibold text-primary">Contact Us</h1>

@@ -309,6 +309,7 @@ const Rewards = () => {
         <div className="bg-[#110b20] py-[74px]">
             <Container className="relative !px-[10px] min-[320px]:!px-[30px]">
                 <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="absolute pointer-events-none left-[-40px] sm:left-[-100px] sm:top-[-100px] mix-blend-hard-light" />
+                <img src="/images/purple-lens-flare-right.svg" alt="purple lens flare" className="absolute pointer-events-none bottom-[-50px] min-[425px]:bottom-[-200px] right-[-200px] min-[425px]:right-[-300px] lg:right-[-600px] lg:bottom-[-400px] mix-blend-hard-light" />
                 <header className="text-white relative grid lg:hidden text-center">
                     <h1 className="relative z-2 text-[32px] font-clashdisplay font-bold">Prizes and </h1>
                     <h1 className="text-primary relative z-2 text-[32px] font-clashdisplay font-bold">Rewards</h1>
@@ -367,7 +368,9 @@ const Partners = () => {
 
     return (
         <div className="bg-[#110b20] py-[74px] border-b-[1px] border-b-[#FFFFFF2E]">
-            <Container className="py-20">
+            <Container className="py-20 relative">
+                <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="absolute pointer-events-none mix-blend-hard-light top-[-10%] left-[-40%] md:top-[-300px] md:left-[-400px]" />
+                <img src="/images/purple-lens-flare-right.svg" alt="purple lens flare" className="absolute pointer-events-none mix-blend-hard-light bottom-[-20%] right-[-50%] min-[480px]:bottom-[-400px] lg:right-[-600px]" />
                 <header className="text-white relative text-center mb-14">
                     <h1 className="relative z-2 text-[32px] font-clashdisplay font-bold">Partners and Sponsors </h1>
                     <p className="pt-2 text-[14px] mx-auto w-full max-w-[452px] ">Getlinked Hackathon 1.0 is honored to have the following major
@@ -375,7 +378,7 @@ const Partners = () => {
                     </p>
                 </header>
                 <div className="w-full max-w-[1255px] mx-auto py-20 lg:py-32 rounded-[2px] lg:rounded-[2px] border-[1px] border-primary">
-                    <div className="w-full max-w-[240px] lg:max-w-[898px] mx-auto grid grid-cols-3">
+                    <div className="w-full max-w-[240px] lg:max-w-[898px] mx-auto grid grid-cols-3 relative z-10">
                         <div className="p-5 grid place-items-center border-b-[2px] lg:border-b-[4px] border-primary relative before:content-[''] before:w-[25px] before:h-[25px] lg:before:w-[50px] lg:before:h-[50px] before:absolute before:bottom-[-12.25px] before:right-[-12.25px] lg:before:bottom-[-25px] lg:before:right-[-25px] before:bg-[#110b20]">
                             <img src='/images/liberty.svg' alt="Liberty" className="w-[30px] h-[30px] lg:w-auto lg:h-auto" />
                         </div>

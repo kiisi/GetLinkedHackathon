@@ -14,7 +14,7 @@ export const faqsData = [
     {
         id: nanoid(),
         title: 'What happens if I don\'t have an idea for a project?',
-        content: 'E don be for you be that, Just dey play'
+        content: 'hehe, just dey play. go do some research and look for a project that will solve problems or improve our world.'
     },
     {
         id: nanoid(),

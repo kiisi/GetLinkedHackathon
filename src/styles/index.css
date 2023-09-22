@@ -103,3 +103,7 @@ input[data-autocompleted] {
 .bronze-medal-gradient{
   background: linear-gradient(0deg, #D434FE, #D434FE), linear-gradient(0deg, rgba(212, 52, 254, 0.12), rgba(212, 52, 254, 0.12));
 }
+
+.close-btn-gradient{
+  background: linear-gradient(180deg, #903AFF 0%, #FF26B9 100%);
+}

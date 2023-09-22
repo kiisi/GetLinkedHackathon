@@ -5,8 +5,15 @@ import Input from "../components/Input";
 import { socialLinks } from "../data/links";
 import Navbar from "../layout/Navbar";
 import SEO from "../components/Seo";
+import toast from "react-hot-toast";
+import appService from "../services/app";
+import HttpErrorException from "../utlis/HttpErrrorException";
+import validator from 'validator';
+import { useNavigate } from "react-router-dom";
 
 export default function Contact() {
+
+    const navigate = useNavigate()
 
     return (
         <>
@@ -20,7 +27,7 @@ export default function Contact() {
                 </div>
                 <Container className="pt-10 lg:hidden">
                     <div className="max-w-[437px] w-full mx-auto">
-                        <button className="bg-primary-gradient h-[23px] w-[23px] rounded-[50%] block p-[2px] overflow-hidden">
+                        <button onClick={()=> navigate(-1)} className="bg-primary-gradient h-[23px] w-[23px] rounded-[50%] block p-[2px] overflow-hidden">
                             <span className="w-full h-full bg-bgdark grid place-items-center rounded-[50%]">
                                 <img src="/icons/chevron-left.svg" alt="Chevron left" />
                             </span>
@@ -69,9 +76,11 @@ export default function Contact() {
 
 const ContactForm = () => {
 
+    const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
         first_name: "",
-        mail: "",
+        email: "",
+        phone_number: "",
         message: "",
     })
 
@@ -82,6 +91,38 @@ const ContactForm = () => {
         }))
     }
 
+    const submit = (e) => {
+        e.preventDefault()
+
+        if (!formData.first_name || !formData.email || !formData.phone_number || !formData.message) {
+            return toast.error("All form fields are required!")
+        }
+
+        if (!validator.isEmail(formData.email)) {
+            return toast.error("Invalid email!")
+        }
+
+        setLoading(true)
+
+        appService.sendContactForm(formData)
+            .then(data => {
+                console.log(data)
+                toast.success("Submitted Successfully!")
+                setFormData({
+                    first_name: "",
+                    email: "",
+                    phone_number: "",
+                    message: "",
+                })
+            })
+            .catch(error => {
+                console.log(error)
+                new HttpErrorException(error).trigger()
+            })
+            .finally(() => setLoading(false))
+
+    }
+
     return (
         <div className="w-full lg:max-w-[617px] w-full py-10 py-0 lg:py-16 lg:px-6 rounded-lg lg:bg-[#ffffff08] lg:shadow-[0px_4px_4px_0px] #00000040] relative">
             <div className="w-full max-w-[437px] mx-auto">
@@ -90,7 +131,7 @@ const ContactForm = () => {
                     <h1>Let us know  about it!</h1>
                 </header>
                 <p className="lg:hidden text-white mb-8 text-[12px]">Email us below to any question related to our event</p>
-                <form className="flex flex-col gap-8 lg:gap-10">
+                <form className="flex flex-col gap-8 lg:gap-10" onSubmit={submit}>
                     <fieldset>
                         <Input
                             placeholder="First Name"
@@ -101,21 +142,37 @@ const ContactForm = () => {
                     </fieldset>
                     <fieldset>
                         <Input
-                            placeholder="Mail"
-                            name="mail"
-                            value={formData.mail}
+                            placeholder="Email"
+                            name="email"
+                            value={formData.email}
                             onChange={formDataHandler}
                         />
                     </fieldset>
                     <fieldset>
                         <Input
+                            placeholder="Phone number"
+                            name="phone_number"
+                            value={formData.phone_number}
+                            onChange={formDataHandler}
+                        />
+                    </fieldset>
+                    <fieldset>
+                        <textarea
+                            className="w-full bg-transparent text-white border-[1px] border-white placeholder-white outline-primary shadow-md rounded-md px-3 lg:px-5 py-2 h-[119px] custom-scroll-bar resize-none"
+                            rows={5}
                             placeholder="Message"
                             name="message"
                             value={formData.message}
                             onChange={formDataHandler}
                         />
                     </fieldset>
-                    <Button className="mx-auto">Submit</Button>
+                    <Button
+                        className="mx-auto"
+                        type="submit"
+                        loading={loading}
+                    >
+                        Submit
+                    </Button>
                     <div className="pt-2 lg:hidden max-w-max grid place-items-center mx-auto">
                         <h1 className="font-semibold text-primary mb-4">Share on</h1>
                         <div className="flex gap-4 items-center">

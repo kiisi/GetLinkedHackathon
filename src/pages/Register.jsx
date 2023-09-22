@@ -70,10 +70,7 @@ const RegisterForm = () => {
     ]
     const [selectedGroups, setSelectedGroups] = useState(null)
 
-    console.log(category)
-
     function closeModal() {
-        console.log(isOpen)
         setIsOpen(false)
     }
 
@@ -85,7 +82,6 @@ const RegisterForm = () => {
         phone_number: "",
         team_name: "",
         project_topic: "",
-
     })
 
     const formDataHandler = (e) => {
@@ -96,14 +92,12 @@ const RegisterForm = () => {
     }
 
     useEffect(() => {
-
         appService.getCategory()
             .then((data) => {
                 console.log(data)
                 setCategory(data.data)
             })
             .catch(err => console.log(err))
-
     }, [])
 
     const submit = (e) => {
@@ -136,6 +130,12 @@ const RegisterForm = () => {
         authService.register(payload)
             .then((data) => {
                 console.log(data)
+                setFormData({
+                    email: "",
+                    phone_number: "",
+                    team_name: "",
+                    project_topic: "",
+                })
                 openModal()
             })
             .catch(error => {
@@ -143,10 +143,7 @@ const RegisterForm = () => {
                 new HttpErrorException(error).trigger()
             })
             .finally(() => setLoading(false))
-
     }
-
-    console.log(checked)
 
     return (
         <>
@@ -305,7 +302,7 @@ const RegisterForm = () => {
                         <Button
                             className="lg:!w-full mx-auto lg:mx-0"
                             loading={loading}
-                            onClick={submit}
+                            type="submit"
                         >
                             Register Now
                         </Button>

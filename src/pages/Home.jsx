@@ -408,7 +408,8 @@ const Policy = () => {
 
     return (
         <div className="bg-[#150e28] py-[74px]">
-            <Container className="py-20">
+            <Container className="py-20 relative">
+                <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="absolute pointer-events-none mix-blend-hard-light top-[600px] min-[425px]:top-[500px] lg:top-0 lg:bottom-[-400px] left-[-20%]" />
                 <div className="grid lg:grid-cols-2 gap-[50px]">
                     <section>
                         <header className="text-white relative mb-14">
@@ -426,7 +427,7 @@ const Policy = () => {
                                 and safeguard your data when you participate in our tech
                                 hackathon event. By participating in our event, you consent
                                 to the practices described in this policy.</p>
-                            <div className="pl-[22px] lg:pl-[72px] pr-[22px] lg:pr-[39px]">
+                            <div className="pl-[22px] lg:pl-[72px] pr-[22px] lg:pr-[39px] relative z-2">
                                 <h1 className="relative z-2 text-primary font-clashdisplay font-bold">Licensing Policy </h1>
                                 <p className="text-white font-bold leading-[30px]">Here are terms of our Standard License:</p>
                                 <ul className="flex flex-col gap-4 pt-5 pb-6">
@@ -446,8 +447,8 @@ const Policy = () => {
                         </div>
                     </section>
                     <section>
-                        <figure className="flex relative h-full">
-                            <img src="/images/privacy.svg" alt="Privacy" className="self-end" />
+                        <figure className="grid place-items-center relative h-full">
+                            <img src="/images/privacy.svg" alt="Privacy" className="lg:self-end" />
                             <img src="/images/safeguard.svg" alt="Safeguard" className="absolute top-0" />
                         </figure>
                     </section>

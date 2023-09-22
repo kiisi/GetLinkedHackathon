@@ -27,16 +27,17 @@ export default function Contact() {
                 </div>
                 <Container className="pt-10 lg:hidden">
                     <div className="max-w-[437px] w-full mx-auto">
-                        <button onClick={()=> navigate(-1)} className="bg-primary-gradient h-[23px] w-[23px] rounded-[50%] block p-[2px] overflow-hidden">
+                        <button onClick={() => navigate(-1)} className="bg-primary-gradient h-[23px] w-[23px] rounded-[50%] block p-[2px] overflow-hidden">
                             <span className="w-full h-full bg-bgdark grid place-items-center rounded-[50%]">
                                 <img src="/icons/chevron-left.svg" alt="Chevron left" />
                             </span>
                         </button>
                     </div>
                 </Container>
-                <Container>
+                <Container className="relative">
+                    <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="absolute pointer-events-none left-[-20%] top-[0%] min-[500px]:top-[-20%] mix-blend-hard-light" />
                     <div className="py-10 lg:py-20 lg:px-12 flex gap-10 justify-between">
-                        <div className="pt-10 hidden lg:block">
+                        <div className="pt-10 hidden lg:block relative z-2">
                             <h1 className="font-[ClashDisplay] text-primary text-[32px] font-semibold mb-5">Get in touch</h1>
                             <div className="flex flex-col gap-5 text-white">
                                 <h2>
@@ -187,7 +188,6 @@ const ContactForm = () => {
                     </div>
                 </form>
             </div>
-            <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="absolute pointer-events-none top-[-25%] left-[-135%] mix-blend-hard-light" />
             <img src="/images/purple-lens-flare-right.svg" alt="purple lens flare" className="absolute pointer-events-none lg:bottom-[-50%] lg:right-[-60%] mix-blend-hard-light" />
         </div>
     )

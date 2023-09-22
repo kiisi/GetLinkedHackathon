@@ -30,6 +30,7 @@ export default function Home() {
                 <Timeline />
                 <Rewards />
                 <Partners />
+                <Policy />
             </div>
         </>
     )
@@ -105,7 +106,7 @@ const BigIdea = () => {
                 </figure>
                 <div className="flex items-center">
                     <div className="w-full max-w-[535px] grid place-items-center lg:block text-center lg:text-left">
-                        <header className="text-white text-[32px] font-clasdisplay font-bold">
+                        <header className="text-white text-[32px] font-clashdisplay font-bold">
                             <h1>Introduction to getlinked</h1>
                             <h1 className="text-primary">tech Hackathon 1.0</h1>
                         </header>
@@ -136,7 +137,7 @@ const Rules = () => {
                     </figure>
                     <div className="flex items-center lg:row-start-1 pb-[78px]">
                         <div className="w-full max-w-[535px] mx-auto grid place-items-center lg:block text-center lg:text-left">
-                            <header className="text-white text-[32px] font-clasdisplay font-bold relative ">
+                            <header className="text-white text-[32px] font-clashdisplay font-bold relative ">
                                 <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="w- absolute w-[1037px] h-[948px] pointer-events-none top-[-420px] left-[20px] mix-blend-hard-light hidden lg:block" />
                                 <h1 className="relative z-2">Rules and</h1>
                                 <h1 className="text-primary relative z-2">Guidelines</h1>
@@ -170,7 +171,7 @@ const Attributes = () => {
                     <div className="flex items-center pb-[78px] relative">
                         <img src="/images/purple-lens-flare-right.svg" alt="purple lens flare" className="absolute w-[1037px] h-[948px] pointer-events-none top-[400px] right-[-200px] mix-blend-hard-light" />
                         <div className="w-full max-w-[564px] mx-auto grid place-items-center lg:block text-center lg:text-left">
-                            <header className="text-white text-[32px] font-clasdisplay font-bold relative ">
+                            <header className="text-white text-[32px] font-clashdisplay font-bold relative ">
                                 <h1 className="relative z-2">Judging Criteria</h1>
                                 <h1 className="text-primary relative z-2">Key attributes</h1>
                             </header>
@@ -200,8 +201,8 @@ const Faqs = () => {
                 <div className="flex gap-[24px] pb-14 flex-col lg:flex-row">
                     <div className="w-full lg:max-w-[427px] pt-24">
                         <header className="text-white relative pb-14 grid place-items-center lg:block text-center lg:text-left">
-                            <h1 className="relative z-2 text-[32px] font-clasdisplay font-bold">Frequently Ask </h1>
-                            <h1 className="text-primary relative z-2 text-[32px] font-clasdisplay font-bold">Question</h1>
+                            <h1 className="relative z-2 text-[32px] font-clashdisplay font-bold">Frequently Ask </h1>
+                            <h1 className="text-primary relative z-2 text-[32px] font-clashdisplay font-bold">Question</h1>
                             <p className="pt-2 text-[14px]">We got answers to the questions that you might
                                 want to ask about getlinked Hackathon 1.0</p>
                         </header>
@@ -306,8 +307,8 @@ const Rewards = () => {
         <div className="bg-[#110b20] py-[74px]">
             <Container>
                 <header className="text-white relative grid lg:hidden text-center">
-                    <h1 className="relative z-2 text-[32px] font-clasdisplay font-bold">Prizes and </h1>
-                    <h1 className="text-primary relative z-2 text-[32px] font-clasdisplay font-bold">Rewards</h1>
+                    <h1 className="relative z-2 text-[32px] font-clashdisplay font-bold">Prizes and </h1>
+                    <h1 className="text-primary relative z-2 text-[32px] font-clashdisplay font-bold">Rewards</h1>
                     <p className="pt-2">Highlight of the prizes or rewards for winners and
                         for participants.
                     </p>
@@ -365,7 +366,7 @@ const Partners = () => {
         <div className="bg-[#110b20] py-[74px] border-b-[1px] border-b-[#FFFFFF2E]">
             <Container className="py-20">
                 <header className="text-white relative text-center mb-14">
-                    <h1 className="relative z-2 text-[32px] font-clasdisplay font-bold">Partners and Sponsors </h1>
+                    <h1 className="relative z-2 text-[32px] font-clashdisplay font-bold">Partners and Sponsors </h1>
                     <p className="pt-2 text-[14px] mx-auto w-full max-w-[452px] ">Getlinked Hackathon 1.0 is honored to have the following major
                         companies as its partners and sponsors
                     </p>
@@ -391,6 +392,59 @@ const Partners = () => {
                             <img src='/images/vizual-plus.svg' alt="Vizual Plus" className="w-[69px] h-[30px] lg:w-auto lg:h-auto" />
                         </div>
                     </div>
+                </div>
+            </Container>
+        </div>
+    )
+}
+
+const Policy = () => {
+
+    return (
+        <div className="bg-[#110b20] py-[74px] border-b-[1px] border-b-[#FFFFFF2E]">
+            <Container className="py-20">
+                <div className="grid lg:grid-cols-2 gap-[50px]">
+                    <section>
+                        <header className="text-white relative mb-14">
+                            <h1 className="relative z-2 text-[32px] font-clashdisplay font-bold">Privacy Policy and </h1>
+                            <h1 className="relative z-2 text-[32px] text-primary font-clashdisplay font-bold">Terms </h1>
+                            <p className="pt-4 text-[14px] text-[#FFFFFFBF]">Last updated on September 12, 2023 </p>
+                            <p className="pt-8 text-[14px]">Below are our privacy & policy, which outline a lot of goodies.
+                                it&rsquo;s our aim to always take of our participant
+                            </p>
+                        </header>
+                        <div className="border-[1px] border-primary w-full max-w-[569px] py-[59px] rounded-[5px]">
+                            <p className="text-white text-[14px] px-[15px] lg:px-[72px] leading-[30px] pb-[24px]">At getlinked tech Hackathon 1.0, we value your privacy
+                                and are committed to protecting your personal information.
+                                This Privacy Policy outlines how we collect, use, disclose,
+                                and safeguard your data when you participate in our tech
+                                hackathon event. By participating in our event, you consent
+                                to the practices described in this policy.</p>
+                            <div className="pl-[22px] lg:pl-[72px] pr-[22px] lg:pr-[39px]">
+                                <h1 className="relative z-2 text-primary font-clashdisplay font-bold">Licensing Policy </h1>
+                                <p className="text-white font-bold leading-[30px]">Here are terms of our Standard License:</p>
+                                <ul className="flex flex-col gap-4 pt-5 pb-6">
+                                    <li className="flex gap-4">
+                                        <img src="/icons/checked.svg" alt="Checked" className="w-[17px] h-[17px] mt-2" />
+                                        <p className="text-white text-[14px] leading-[30px]">The Standard License grants you a non-exclusive right to
+navigate and register for our event</p>
+                                    </li>
+                                    <li className="flex gap-4">
+                                        <img src="/icons/checked.svg" alt="Checked" className="w-[17px] h-[17px] mt-2" />
+                                        <p className="text-white text-[14px] leading-[30px]">You are licensed to use the item available at any free source
+sites, for your project developement</p>
+                                    </li>
+                                </ul>
+                                <Button className="mx-auto">Read More</Button>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <figure className="flex relative h-full">
+                            <img src="/images/privacy.svg" alt="Privacy" className="self-end" />
+                            <img src="/images/safeguard.svg" alt="Safeguard" className="absolute top-0" />
+                        </figure>
+                    </section>
                 </div>
             </Container>
         </div>

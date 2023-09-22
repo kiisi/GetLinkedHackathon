@@ -9,6 +9,7 @@ import { Disclosure, Transition } from '@headlessui/react'
 import { faqsData } from "../data/faqs";
 import { TimelineLeft, TimelineMobile, TimelineRight } from "../components/Timeline";
 import { timelineData } from "../data/timeline";
+import Footer from "../layout/Footer";
 
 export default function Home() {
 
@@ -32,6 +33,7 @@ export default function Home() {
                 <Partners />
                 <Policy />
             </div>
+            <Footer />
         </>
     )
 }
@@ -401,7 +403,7 @@ const Partners = () => {
 const Policy = () => {
 
     return (
-        <div className="bg-[#110b20] py-[74px] border-b-[1px] border-b-[#FFFFFF2E]">
+        <div className="bg-[#150e28] py-[74px]">
             <Container className="py-20">
                 <div className="grid lg:grid-cols-2 gap-[50px]">
                     <section>
@@ -413,7 +415,7 @@ const Policy = () => {
                                 it&rsquo;s our aim to always take of our participant
                             </p>
                         </header>
-                        <div className="border-[1px] border-primary w-full max-w-[569px] py-[59px] rounded-[5px]">
+                        <div className="border-[1px] border-primary w-full max-w-[569px] mx-auto py-[59px] rounded-[5px]">
                             <p className="text-white text-[14px] px-[15px] lg:px-[72px] leading-[30px] pb-[24px]">At getlinked tech Hackathon 1.0, we value your privacy
                                 and are committed to protecting your personal information.
                                 This Privacy Policy outlines how we collect, use, disclose,

@@ -307,7 +307,8 @@ const Rewards = () => {
 
     return (
         <div className="bg-[#110b20] py-[74px]">
-            <Container>
+            <Container className="relative !px-[10px] min-[320px]:!px-[30px]">
+                <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="absolute pointer-events-none left-[-40px] sm:left-[-100px] sm:top-[-100px] mix-blend-hard-light" />
                 <header className="text-white relative grid lg:hidden text-center">
                     <h1 className="relative z-2 text-[32px] font-clashdisplay font-bold">Prizes and </h1>
                     <h1 className="text-primary relative z-2 text-[32px] font-clashdisplay font-bold">Rewards</h1>
@@ -316,7 +317,7 @@ const Rewards = () => {
                     </p>
                 </header>
                 <div className="flex flex-col lg:flex-row gap-[37px]">
-                    <figure className="pt-20 lg:pt-36 grid place-items-center">
+                    <figure className="pt-20 lg:pt-36 grid place-items-center relative z-2">
                         <img src="/images/trophy.svg" alt="Trophy" />
                     </figure>
                     <div className="flex-1">
@@ -429,12 +430,12 @@ const Policy = () => {
                                     <li className="flex gap-4">
                                         <img src="/icons/checked.svg" alt="Checked" className="w-[17px] h-[17px] mt-2" />
                                         <p className="text-white text-[14px] leading-[30px]">The Standard License grants you a non-exclusive right to
-navigate and register for our event</p>
+                                            navigate and register for our event</p>
                                     </li>
                                     <li className="flex gap-4">
                                         <img src="/icons/checked.svg" alt="Checked" className="w-[17px] h-[17px] mt-2" />
                                         <p className="text-white text-[14px] leading-[30px]">You are licensed to use the item available at any free source
-sites, for your project developement</p>
+                                            sites, for your project developement</p>
                                     </li>
                                 </ul>
                                 <Button className="mx-auto">Read More</Button>

@@ -36,7 +36,8 @@ export default function Contact() {
                 </Container>
                 <Container className="relative">
                     <img src="/images/purple-lens-flare-left.svg" alt="purple lens flare" className="absolute pointer-events-none left-[-20%] top-[0%] min-[500px]:top-[-20%] mix-blend-hard-light" />
-                    <div className="py-10 lg:py-20 lg:px-12 flex gap-10 justify-between">
+                    <img src="/icons/star-purple.svg" alt="Star Purple" className="absolute left-[50%] lg:left-[110px] top-[2%] lg:top-[5%] w-[11px] h-[13px] lg:w-[21px] lg:h-[25px] pointer-events-none" />
+                    <div className="py-10 lg:py-28 lg:px-12 flex gap-10 justify-between">
                         <div className="pt-10 hidden lg:block relative z-2">
                             <h1 className="font-[ClashDisplay] text-primary text-[32px] font-semibold mb-5">Get in touch</h1>
                             <div className="flex flex-col gap-5 text-white">
@@ -126,6 +127,9 @@ const ContactForm = () => {
 
     return (
         <div className="w-full lg:max-w-[617px] w-full py-10 py-0 lg:py-16 lg:px-6 rounded-lg lg:bg-[#ffffff08] lg:shadow-[0px_4px_4px_0px] #00000040] relative">
+            <img src="/icons/star-purple.svg" alt="Star Purple" className="absolute w-[12px] h-[14px] lg:w-auto lg:h-auto left-[-14px] bottom-[22%] pointer-events-none" />
+            <img src="/icons/star-white.svg" alt="Star White" className="absolute w-[12px] h-[14px] lg:w-auto lg:h-auto right-[-15px] lg:right-[-80px] bottom-[32%] lg:bottom-[0px] pointer-events-none" />
+            <img src="/icons/star-grey.svg" alt="Star Grey" className="w-[16px] h-[20px] lg:w-auto lg:h-auto absolute top-[8%] right-[5%] lg:right-[10px] lg:top-[-80px] pointer-events-none" />
             <div className="w-full max-w-[437px] mx-auto">
                 <header className="text-primary text-[20px] font-semibold mb-5 lg:mb-10">
                     <h1>Questions or need assistance?</h1>

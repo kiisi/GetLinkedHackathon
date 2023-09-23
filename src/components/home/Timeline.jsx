@@ -5,7 +5,7 @@ import { TimelineLeft, TimelineMobile, TimelineRight } from "../Timeline";
 export default function Timeline (){
 
     return (
-        <div className="border-b-[1px] border-[#ffffff2e]">
+        <div className="border-b-[1px] border-[#ffffff2e]" id="timeline">
             <Container className="py-20 relative">
                 <img src="/icons/star-purple.svg" alt="Star Purple" className="absolute top-[250px] left-[30%] w-[14px] h-[16px] lg:w-[30px] lg:h-[36px]" />
                 <img src="/icons/star-white.svg" alt="Star White" className="absolute top-[50%] right-[15%] w-[10px] h-[12px] lg:w-[26px] lg:h-[32px]" />

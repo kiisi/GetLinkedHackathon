@@ -3,7 +3,7 @@ import Container from "../Container";
 export default function BigIdea (){
 
     return (
-        <div className="border-b-[1px] border-[#ffffff2e]">
+        <div className="border-b-[1px] border-[#ffffff2e]" id="overview">
             <Container className="pt-[62px] pb-[78px]">
                 <div className="grid lg:grid-cols-2 gap-[109px] max-w-max mx-auto">
                     <figure className="relative">

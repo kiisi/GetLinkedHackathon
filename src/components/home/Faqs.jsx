@@ -5,7 +5,7 @@ import Container from "../Container";
 export default function Faqs (){
 
     return (
-        <div className="border-b-[1px] border-[#ffffff2e]">
+        <div className="border-b-[1px] border-[#ffffff2e]" id="faqs">
             <Container>
                 <div className="flex gap-[24px] pb-14 flex-col lg:flex-row">
                     <div className="w-full lg:max-w-[427px] pt-24">

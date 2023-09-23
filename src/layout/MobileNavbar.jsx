@@ -23,13 +23,13 @@ export default function MobileNavbar({ visible, closeHandler }) {
                 </div>
                 <div className="flex flex-col gap-5">
                     <span className="text-white">
-                        <a href="/#timeline" className="hover:text-primary">Timeline</a>
+                        <a href="/#timeline" className="hover:text-primary" onClick={closeHandler}>Timeline</a>
                     </span>
                     <span className="text-white">
-                        <a href="/#overview" className="hover:text-primary">Overview</a>
+                        <a href="/#overview" className="hover:text-primary" onClick={closeHandler}>Overview</a>
                     </span>
                     <span className="text-white">
-                        <a href="/#faqs" className="hover:text-primary">Faqs</a>
+                        <a href="/#faqs" className="hover:text-primary" onClick={closeHandler}>Faqs</a>
                     </span>
                     <Link to='/contact' className="text-white hover:text-primary">Contact</Link>
                     <div className="pt-4">

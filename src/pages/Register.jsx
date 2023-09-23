@@ -26,7 +26,9 @@ export default function Register() {
                 <div className="hidden lg:block">
                     <Navbar buttonType="gradient" />
                 </div>
-                <Container>
+                <Container className="relative">
+                    <img src="/icons/star-purple.svg" alt="Star Purple" className="absolute w-[14px] h-[13px] lg:w-[21px] lg:h-[25px] right-[15%] lg:right-0 lg:left-[60px] top-[13%] lg:top-[10%] pointer-events-none" />
+                    <img src="/icons/star-grey.svg" alt="Star Grey" className="w-[16px] h-[20px] lg:w-[26px] lg:h-[32px] absolute left-[2%] top-[40%] lg:top-[70%] lg:left-[80px] pointer-events-none" />
                     <div className="py-10 lg:py-20 grid lg:grid-cols-2 gap-10 justify-between">
                         <figure className="hidden lg:block">
                             <img src="/images/graphic-designer.svg" alt="" className="" />
@@ -107,7 +109,7 @@ const RegisterForm = () => {
             return toast.error("All form inputs are required!")
         }
 
-        if(!checked){
+        if (!checked) {
             return toast.error("Accept our terms and conditions")
         }
 
@@ -148,6 +150,10 @@ const RegisterForm = () => {
     return (
         <>
             <div className="w-full lg:max-w-[740px] pt-0 pb-16 lg:py-16 lg:px-6 rounded-lg lg:bg-[#ffffff08] lg:shadow-[0px_4px_4px_0px] #00000040] relative col-span-2 lg:col-start-2">
+                <img src="/icons/star-purple.svg" alt="Star Purple" className="absolute w-[14px] lg:w-[23px] h-[18px] lg:h-[28px] lg:w-auto lg:h-auto left-[-70px] bottom-[30%] pointer-events-none" />
+                <img src="/icons/star-grey.svg" alt="Star Grey" className="hidden lg:block absolute w-[12px] lg:w-[26px] h-[14px] lg:h-[32px] lg:w-auto lg:h-auto right-[140px] top-[20px] pointer-events-none" />
+                <img src="/icons/star-white.svg" alt="Star White" className="hidden lg:block absolute w-[10px] h-[12px] lg:right-[80px] bottom-[-12px] pointer-events-none" />
+                <img src="/icons/star-purple.svg" alt="Star White" className="lg:hidden absolute w-[10px] h-[12px] right-[-12px] bottom-[29%] pointer-events-none" />
                 <div className="w-full max-w-[558px] mx-auto">
                     <header className="mb-5 relative z-10">
                         <h1 className="text-primary font-[ClashDisplay] text-[32px] mb-8 font-semibold">Register</h1>

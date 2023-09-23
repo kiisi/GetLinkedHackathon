@@ -3,14 +3,13 @@ import Navbar from "../layout/Navbar";
 import SEO from "../components/Seo";
 import Container from "../components/Container";
 import Button from "../components/Button";
-import { TimelineLeft, TimelineMobile, TimelineRight } from "../components/Timeline";
-import { timelineData } from "../data/timeline";
 import Footer from "../layout/Footer";
 import Hero from "../components/home/Hero";
 import BigIdea from "../components/home/BigIdea";
 import Rules from "../components/home/Rules";
 import Attributes from "../components/home/Attributes";
 import Faqs from "../components/home/Faqs";
+import Timeline from "../components/home/Timeline";
 
 export default function Home() {
 
@@ -39,60 +38,6 @@ export default function Home() {
     )
 }
 
-
-const Timeline = () => {
-
-    return (
-        <div className="border-b-[1px] border-[#ffffff2e]">
-            <Container className="py-20">
-                <header className="w-full max-w-[346px] mx-auto text-center text-white mb-20">
-                    <h1 className="text-[32px] font-clashdisplay font-bold mb-2">Timeline</h1>
-                    <p className="text-[14px]">Here is the breakdown of the time we anticipate
-                        using for the upcoming event.</p>
-                </header>
-                <section className="hidden sm:block">
-                    {
-                        timelineData.map(tld => (
-                            tld.direction === 'left' ?
-                                <TimelineLeft
-                                    key={tld.id}
-                                    title={tld.title}
-                                    content={tld.content}
-                                    date={tld.date}
-                                    index={tld.index}
-                                    start={tld?.start}
-                                    end={tld?.end}
-                                />
-                                :
-                                <TimelineRight
-                                    key={tld.id}
-                                    title={tld.title}
-                                    content={tld.content}
-                                    date={tld.date}
-                                    index={tld.index}
-                                    start={tld?.start}
-                                    end={tld?.end}
-                                />
-                        ))
-                    }
-                </section>
-                <section className="block sm:hidden">
-                    {
-                        timelineData.map(tld => (
-                            <TimelineMobile
-                                key={tld.id}
-                                title={tld.title}
-                                content={tld.content}
-                                date={tld.date}
-                                index={tld.index}
-                            />
-                        ))
-                    }
-                </section>
-            </Container>
-        </div>
-    )
-}
 
 const Rewards = () => {
 

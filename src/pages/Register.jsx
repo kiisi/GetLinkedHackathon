@@ -138,6 +138,8 @@ const RegisterForm = () => {
                     team_name: "",
                     project_topic: "",
                 })
+                setSelectedCategory(null)
+                setSelectedGroups(null)
                 openModal()
             })
             .catch(error => {
@@ -331,7 +333,7 @@ const RegisterForm = () => {
                         <div className="fixed inset-0 bg-[#150e28ed]" />
                     </Transition.Child>
                     <div className="fixed inset-0 overflow-y-auto">
-                        <div className="flex min-h-full items-center justify-center p-4 text-center">
+                        <div className="flex min-h-full items-center justify-center px-4 py-12 text-center">
                             <Transition.Child
                                 as={Fragment}
                                 enter="ease-out duration-300"
@@ -341,7 +343,9 @@ const RegisterForm = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-[669px] transform overflow-hidden rounded-2xl bg-transparent border-[1px] border-primary px-6 pt-4 pb-8 lg:pb-16 lg:px-12 text-left align-middle shadow-xl transition-all">
+                                <Dialog.Panel className="w-full max-w-[669px] transform rounded-[4px] bg-transparent border-[1px] border-primary px-6 pt-4 pb-8 lg:pb-16 lg:px-12 text-left align-middle shadow-xl transition-all relative">
+                                    <img src="/icons/star-purple.svg" alt="Star Purple" className="absolute w-[14px] lg:w-[23px] h-[18px] lg:h-[28px] lg:w-[23px] lg:h-[28px] right-[-5px] lg:right-[-20px] top-[-25px] lg:top-[-20px] pointer-events-none" />
+                                    <img src="/icons/star-dark-purple.svg" alt="Star Purple" className="absolute w-[14px] lg:w-[23px] h-[18px] lg:h-[28px] lg:w-[21px] lg:h-[25px] right-[40px] lg:right-[30px] bottom-[-35px] lg:bottom-[15px] pointer-events-none" />
                                     <header className="grid place-items-center text-center gap-4">
                                         <img src="/images/congratulation.svg" alt="Congratulations" className="max-w-[258px] lg:max-w-[472px]" />
                                         <Dialog.Title
